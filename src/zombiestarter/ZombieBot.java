@@ -1,29 +1,15 @@
-/*
- * Author: Add group details here
- * Desc: This file contains the heart of dynamic game play for Zombies. 
- *       you need to implement each of the methods, as per the game play,
- *       adding support for processing commands comming from the client.
- */
+// Author: Connor Hill, Jake Chapman, Adam Williams
+// Desc: This file contains the heart of dynamic game play for Zombies. 
+
 package zombiestarter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author your details
- */
-/**
- * class that implements the ZombieBot interface and plays the game
- *
- * @author br-gaster
- */
+// class that implements the ZombieBot interface and plays the game
 public class ZombieBot implements world.ZombieBot {
 
     private World world;
-
-
-  
 
     ZombieBot(World world) {
         this.world = world;
@@ -32,10 +18,7 @@ public class ZombieBot implements world.ZombieBot {
     public World getWorld() {
         return world;
     }
-
     
-    
-
     ZombieBot() {
 
     }
@@ -47,7 +30,7 @@ public class ZombieBot implements world.ZombieBot {
      */
     @Override
     public boolean shouldQuit() {
-        return false;
+        return true;
     }
 
     /**
@@ -125,7 +108,7 @@ public class ZombieBot implements world.ZombieBot {
                 result.add("handle timeexpired command");
                 break;
             case "quit":
-                result.add("handle quit command");
+                shouldQuit(); // quit the game
                 break;
             case "inventory":
                 result.add("handle inventory command");
