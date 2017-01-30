@@ -122,7 +122,7 @@ public class ZombieBot implements world.ZombieBot {
                 result.add("<b>Stop talking jibberish...</b>");
         }
 //Testing version control.
-//Testing Version Control 2.
+//Testing Version Control 2..
         return result;
     }
 }
