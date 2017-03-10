@@ -1,0 +1,53 @@
+{   
+    "info" : "<p class=\\\"lead\\\">Welcome to Uni of the dead</p><p>UWE's campus has been invaded by the undead! You must kill the zombies and get to the exit room or die trying!</p>",
+
+    "startHtml" : "let's play",
+    
+    "inventoryHtml" : "<img src=\\\"../assets/backpack.png\\\">",
+    
+    "items" : [
+        { "name" : "GOLD", "html" : "<img src=\\\"../assets/gold.png\\\">" },
+        { "name" : "KEY", "html" : "<img src=\\\"../assets/key.png\\\">" },
+        { "name" : "CHAINSAW", "html" : "<img src=\\\"../assets/chainsaw.png\\\">" },
+        { "name" : "RED HERB", "html" : "<img src=\\\"../assets/daisy.png\\\">" },
+        { "name" : "GREEN HERB", "html" : "<img src=\\\"../assets/daisy.png\\\">" },
+        { "name" : "BAG OF JUNK", "html" : "<img src=\\\"../assets/backpack.png\\\">" }
+    ],
+    
+    "rooms" : [
+    {
+        "name" : "Toilet",
+        "description": "A dark, dingy toilet with flickering lights",
+        "entrances" : [
+            { "direction" : "NE", "to" : "Exit", "locked": true },
+            { "direction" : "SE", "to" : "R3", "locked": false },
+            { "direction" : "SW", "to" : "R4", "locked": false }
+        ],
+        "items" : [ { "item" : "GOLD" }, { "item" : "CHAINSAW" }, { "item" : "GREEN HERB" }, { "item" : "RED HERB" } ],
+        "zombies" : 0
+    },
+    {
+        "name" : "Exit",
+        "description": "This is the final room...",
+        "entrances" : [  ],
+        "items" : [ { "item" : "GOLD" }, { "item" : "BAG OF JUNK" } ],
+        "zombies" : 1
+    },
+    {
+        "name" : "R3",
+        "description": "Level R3",
+        "entrances" : [ { "direction" : "NW", "to" : "Toilet", "locked": false } ],
+        "items" : [ { "item" : "KEY" }, { "item" : "CHAINSAW" } ],
+        "zombies" : 2
+    },
+    {
+        "name" : "R4",
+        "description": "Level R4",
+        "entrances" : [ { "direction" : "NE", "to" : "Toilet", "locked": false } ],
+        "items" : [ { "item" : "GOLD" }, { "item" : "MACHETE" } ],
+        "zombies" : 0
+    }
+  ],
+  "start" : "Toilet",
+  "finish": "Exit"
+}
