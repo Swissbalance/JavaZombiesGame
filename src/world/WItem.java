@@ -8,7 +8,6 @@ package world;
  * Created by br-gaster on 11/16/16.
  */
 public class WItem {
-
     // item name
     private final String name;
 
@@ -17,7 +16,6 @@ public class WItem {
 
     /**
      * constructor to create an item
-     *
      * @param name of item
      * @param html for displaying item in client
      */
@@ -28,7 +26,6 @@ public class WItem {
 
     /**
      * name of item
-     *
      * @return name
      */
     public String getName() {
@@ -37,7 +34,6 @@ public class WItem {
 
     /**
      * html to display item in client
-     *
      * @return HTML
      */
     public String getHtml() {

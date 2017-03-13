@@ -1,7 +1,7 @@
 {   
-    "info" : "<p class=\\\"lead\\\">Welcome to Uni of the dead</p><p>UWE's campus has been invaded by the undead! You must kill the zombies and get to the exit room or die trying!</p>",
+    "info" : "<p class=\\\"lead\\\"> Type 'commands' for a list of available actions. </p></p>",
 
-    "startHtml" : "let's play",
+    "startHtml" : "Welcome to Uni of the dead! <br><br> Type 'commands' for a list of available actions.",
     
     "inventoryHtml" : "<img src=\\\"../assets/backpack.png\\\">",
     
@@ -9,42 +9,40 @@
         { "name" : "GOLD", "html" : "<img src=\\\"../assets/gold.png\\\">" },
         { "name" : "KEY", "html" : "<img src=\\\"../assets/key.png\\\">" },
         { "name" : "CHAINSAW", "html" : "<img src=\\\"../assets/chainsaw.png\\\">" },
-        { "name" : "RED HERB", "html" : "<img src=\\\"../assets/daisy.png\\\">" },
-        { "name" : "GREEN HERB", "html" : "<img src=\\\"../assets/daisy.png\\\">" },
-        { "name" : "BAG OF JUNK", "html" : "<img src=\\\"../assets/backpack.png\\\">" }
+        { "name" : "DAISY", "html" : "<img src=\\\"../assets/daisy.png\\\">" }
     ],
     
     "rooms" : [
     {
         "name" : "Toilet",
-        "description": "A dark, dingy toilet with flickering lights",
+        "description": "You are in the toilet... it doesn't smell very nice...",
         "entrances" : [
             { "direction" : "NE", "to" : "Exit", "locked": true },
-            { "direction" : "SE", "to" : "R3", "locked": false },
-            { "direction" : "SW", "to" : "R4", "locked": false }
+            { "direction" : "SE", "to" : "Corridor", "locked": false },
+            { "direction" : "SW", "to" : "IT Labs", "locked": false }
         ],
-        "items" : [ { "item" : "GOLD" }, { "item" : "CHAINSAW" }, { "item" : "GREEN HERB" }, { "item" : "RED HERB" } ],
+        "items" : [ { "item" : "GOLD" }, { "item" : "CHAINSAW" }, { "item" : "DAISY" } ],
         "zombies" : 0
     },
     {
         "name" : "Exit",
         "description": "This is the final room...",
         "entrances" : [  ],
-        "items" : [ { "item" : "GOLD" }, { "item" : "BAG OF JUNK" } ],
+        "items" : [ { "item" : "GOLD" } ],
         "zombies" : 1
     },
     {
-        "name" : "R3",
-        "description": "Level R3",
+        "name" : "Corridor",
+        "description": "You are in a blood stained corridor...",
         "entrances" : [ { "direction" : "NW", "to" : "Toilet", "locked": false } ],
         "items" : [ { "item" : "KEY" }, { "item" : "CHAINSAW" } ],
         "zombies" : 2
     },
     {
-        "name" : "R4",
-        "description": "Level R4",
+        "name" : "IT Labs",
+        "description": "You are in the IT labs... There is nobody around",
         "entrances" : [ { "direction" : "NE", "to" : "Toilet", "locked": false } ],
-        "items" : [ { "item" : "GOLD" }, { "item" : "MACHETE" } ],
+        "items" : [ { "item" : "GOLD" }, { "item" : "CHAINSAW" } ],
         "zombies" : 0
     }
   ],

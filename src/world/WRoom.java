@@ -36,7 +36,12 @@ public class WRoom {
      * @param entrances found in room
      * @param items placed in room at world creation
      */
-    WRoom(String name,String desc, ArrayList<WEntrance> entrances, ArrayList<String> items, int zombieCount) {
+    WRoom(
+        String name, 
+        String desc, 
+        ArrayList<WEntrance> entrances,
+        ArrayList<String> items,
+        int zombieCount) {
         this.name = name;
         description = desc;
         this.entrances = entrances;
