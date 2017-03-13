@@ -1,31 +1,41 @@
-// Authors: Connor Hill, Jake Chapman, Adam Williams
-// Description: Code regarding entrances
+/*
+ * Author: Jake Chapman, Connor Hill, Adam Williams
+ * Desc: This class contain all information on the Entrance,
+ *       It also processes how the client interacts with the entrances.
+ */
 package zombiestarter;
 
-public class Entrance {
+class Entrance {
 
+    //string of direction the entrance leads
     private final String direction;
-    private final Room to;
+
+    //the room the entrance leads too
+    private final Room roomDest;
+
+    //if the entrance requires a key
     private final boolean locked;
 
-    Entrance(String direction, Room to, boolean locked) {
+    //constructor
+    Entrance(String direction, Room roomDest, boolean locked) {
         this.direction = direction;
-        this.to = to;
+        this.roomDest = roomDest;
         this.locked = locked;
     }
 
-    // gets the entrance direction
+    //get entrance direction
     public String getDirection() {
         return direction;
     }
 
-    // getsthe room destination
-    public Room getTo() {
-        return to;
+    //get room destination
+    public Room getRoomDest() {
+        return roomDest;
     }
 
-    // check if door is locked
-    public boolean getLocked() {
+    //check door locked
+    public boolean checkLocked() {
         return locked;
     }
+
 }

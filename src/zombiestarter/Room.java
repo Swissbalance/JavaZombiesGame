@@ -1,82 +1,111 @@
-// Authors: Connor Hill, Jake Chapman, Adam Williams
-// Description: Code regarding rooms
+/*
+ * Author: Jake Chapman, Connor Hill, Adam Williams
+ * Desc: This class contain all information on the Room,
+ *       It also processes how the client interacts with the room.
+ */
 package zombiestarter;
 
 import java.util.List;
 
 public class Room {
 
-    private final String name; // attribute name
-    private final String desc; // attribute description
-    private final int zombieCount; // number of zombies
-    final List<Item> items; // list of items
-    public List<Entrance> entrances; // list of entrances
+    //attribute description
+    private final String description;
+    
+    //attribute name
+    private final String name;
+    
+    //list of entrances
+    private List<Entrance> entrances;
+    
+    //list of items
+    private final List<Item> items;
+    
+    //number of zombies
+    private int zombieCount;
 
-    Room(String name, String desc, List<Item> items, int zombieCount) {
+    //constructor    take a description take a name
+    Room(String name, String description, List<Item> items, int zombieCount) {
+        this.description = description;
         this.name = name;
-        this.desc = desc;
         this.items = items;
         this.zombieCount = zombieCount;
+
     }
 
-    // adds the entrances
+    //add entrances method
     public void addEntrances(List<Entrance> entrances) {
         this.entrances = entrances;
+    }    
+    
+    //getter for list of items in room
+    public List<Item> getItems() {
+        return items;
     }
 
-    // gets the entrance list
+    //get entrance list
     public List<Entrance> getEntrances() {
         return entrances;
     }
 
-    // gets the room name
-    String getName() {
+    //get room name
+    public String getName() {
         return name;
     }
 
-    // gets the room description
+    //get room description
     public String getDescription() {
-        return desc;
+        return description;
     }
 
-    // gets the zombie count
+    //get zombie count
     public int getZombieCount() {
         return zombieCount;
     }
 
-    // removes items from the room
+    //remove items from room
     public void removeItem(String cmd) {
+        Item itemToRemove = null;
         for (Item item : items) {
             if (item.getName().equalsIgnoreCase(cmd)) {
-                items.remove(cmd); // NOT WORKING
+                itemToRemove = item;
             }
         }
+        items.remove(itemToRemove);
     }
 
-    String look() {
-        String result = name + " " + desc + " ";
-
+    //look method
+    public String look() {
+        String directionList = "";
         for (Entrance entrance : entrances) {
-            result = result + entrance.getDirection() + entrance.getTo() + entrance.getLocked();
+            directionList = directionList + entrance.getDirection() + ", ";
         }
 
+        String itemList = "";
         for (Item item : items) {
-            result = result + item.getHtml() + "Zombie Count is:" + zombieCount;
+            itemList = itemList + " " + item.getHtml();
         }
-
-        return result;
+        return "<h4>you are in the " + name + "</h4><br>" + description + "<br>there are entrances to the : " + directionList + "<br>" + itemList;
     }
 
-    //    public String getRoomDest(String cmd) {
-    //        return entrances.get(entrances.indexOf(cmd)).getRoomDest();
-    //    }
-    boolean checkLocked(String cmd) {
+    //checking if an entrance in the room is locked
+    public boolean checkLocked(String cmd) {
         for (Entrance entrance : entrances) {
             if (entrance.getDirection().equalsIgnoreCase(cmd)) {
-                return entrance.getLocked();
+                return entrance.checkLocked();
             }
         }
         return false;
+    }
+    
+    //adding item form inventory into room
+    public void addItem(Item putDown) {
+        items.add(putDown);
+    }
+        
+    //takes one zombie of the rooms zombie count
+    public void killOneZombie() {
+        zombieCount--;
     }
 
 }
